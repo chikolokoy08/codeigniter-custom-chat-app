@@ -185,6 +185,7 @@ $(document).ready(function(){
         var toid = disForm.find('[name="chat_to"]');
         var message = disForm.find('[name="message"]');
         var chatBox = disForm.closest('#chat-box');
+        message.attr('disabled','disabled').addClass('disabled');
         disForm.find('.required').each(function(){
             if (vF && $(this).val() == '') {
                 promptMessage('error', 'This field is required');
@@ -206,6 +207,7 @@ $(document).ready(function(){
                     if (chatBox.find('.cb-feeds').html() == '' || chatBox.find('.cb-feeds').html() == undefined) {
                         chatBeat();
                     }
+                    message.removeAttr('disabled').removeClass('disabled');
                     message.val('').focus();
                     subBtn.removeClass('disabled').removeAttr('disabled');
                 },
