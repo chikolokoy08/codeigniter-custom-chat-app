@@ -16,6 +16,10 @@ This chat app is built to provide a web-based chat portal for private and public
 * Change Password 
 * Chat Module
 
+### Demo
+
+* Visit this link - [http://privatechat.jumpstartcreatives.com](http://privatechat.jumpstartcreatives.com)
+
 ### Copyright and License
 
 This is an open-source project and under Creative Commons Agreement. Use this app at your own risk. Copyright 2014. Jumpstart Creatives Solutions.
