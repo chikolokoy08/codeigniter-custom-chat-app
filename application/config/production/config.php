@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://prod.salarium.com/';
+$config['base_url']	= 'http://privatechat.jumpstartcreatives.com/';
 
 /*
 |--------------------------------------------------------------------------

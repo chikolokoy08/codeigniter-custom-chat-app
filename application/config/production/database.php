@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'db.prod.salarium.com';
-$db['default']['username'] = 'dbadmin';
-$db['default']['password'] = 'qwerty1234';
-$db['default']['database'] = 'salarium_registration';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = '<your_db_username>';
+$db['default']['password'] = '<your_db_password>';
+$db['default']['database'] = '<your_db_name>';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

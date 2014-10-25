@@ -6,14 +6,12 @@ This chat app is built to provide a web-based chat portal for private and public
 
 ### Version v1.0
 
-- Pages
 * Login
 * Create Account
 * Chatboard
 * Profile
-- Funtionalities
-* Login and Create Authentication
-* Change Password 
+* Login and Create Account Authentication
+* Change Password Functionalities
 * Chat Module
 
 ### Demo
