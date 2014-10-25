@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+
+    Options +FollowSymLinks
+    RewriteEngine on
+
+    # Send request via index.php (again, not if its a real file or folder)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L]
+	
+	# Staging
+
+	RewriteEngine on
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_HOST} ^staging.salarium.com
+	RewriteRule ^(.*)$ https://staging.salarium.com/index.php/$1 [R,L]
+
+	# Production
+
+	RewriteEngine on
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_HOST} ^dev.salarium.com
+	RewriteRule ^(.*)$ https://dev.salarium.com/index.php/$1 [R,L]
+
+    Header add Cache-Control:  "no-store, no-cache, must-revalidate"
+</IfModule>
