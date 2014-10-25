@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('admin/user','global/salarium_model');
+$autoload['model'] = array('admin/user',);
 $autoload['sparks'] = array('ion_auth/2.5.0');
 
 

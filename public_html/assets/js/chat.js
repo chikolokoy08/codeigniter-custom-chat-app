@@ -185,7 +185,6 @@ $(document).ready(function(){
         var toid = disForm.find('[name="chat_to"]');
         var message = disForm.find('[name="message"]');
         var chatBox = disForm.closest('#chat-box');
-        message.attr('disabled','disabled').addClass('disabled');
         disForm.find('.required').each(function(){
             if (vF && $(this).val() == '') {
                 promptMessage('error', 'This field is required');
@@ -198,6 +197,7 @@ $(document).ready(function(){
             subBtn.addClass('disabled').attr('disabled', 'disabled');
             var actionPath = disForm.attr('action');
             var dataString = disForm.serialize();
+            message.attr('disabled','disabled').addClass('disabled');
             $.ajax({
                 type: 'POST',  
                 url: actionPath,
