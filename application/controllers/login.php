@@ -147,12 +147,12 @@ class Login extends MY_Controller {
                     'unsigned' => TRUE,
                     'auto_increment' => TRUE
                           ),
-                'from' => array(
+                'from_sender' => array(
                     'type' => 'VARCHAR',
                     'constraint' => 150,
                     'null' => FALSE,
                 ),
-                'to' => array(
+                'to_sender' => array(
                      'type' =>'VARCHAR',
                      'constraint' => 150,
                      'null' => FALSE,
@@ -161,16 +161,13 @@ class Login extends MY_Controller {
                      'type' =>'TEXT',
                      'null' => FALSE,
                  ),                 
-                'sent' => array(
+                'deleted' => array(
                      'type' =>'DATETIME',
-                     'null' => FALSE,
-                     'default' => '0000-00-00 00:00:00',
+                     'null' => TRUE,
                  ),
                  'received' => array(
-                     'type' =>'INT',
-                     'constraint' => 11,
+                     'type' =>'TIMESTAMP',
                      'null' => FALSE,
-                     'default' => '0',
                  )
             );
             $this->dbforge->add_field($chat_fields);
