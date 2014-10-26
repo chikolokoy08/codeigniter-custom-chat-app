@@ -218,10 +218,20 @@ $(document).ready(function(){
         }
 
     });
+
+    $(document).on('mouseover', '#chat-container .chat-object', function(){
+        $('#chat-container .chat-object').removeClass('active-mb');
+        $(this).addClass('active-mb');
+    });
     
-    $(document).on('keyup', '.message-box', function(e){
+    $(document).on('keypress', '.active-mb #message', function(e){
         if(e.keyCode == 13) {
-            $(this).closest('form').submit();
+            if($(this).val() == '') {
+                $(this).val('').focus();
+                promptMessage('warning', 'Message box is empty.');
+            } else {
+                $(this).closest('form').submit();
+            }
         }
     });
     
@@ -231,7 +241,7 @@ $(document).ready(function(){
             console.log('has '+$('#chat-container .chat-object').length+' displayed');
             setInterval(function(){
                 chatBeat();
-            },4000);
+            },3000);
         } else {
             if(tries > 50) {
                 setTimeout('window.location = "/"',500);

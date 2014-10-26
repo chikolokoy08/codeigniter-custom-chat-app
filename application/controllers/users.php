@@ -49,7 +49,7 @@ class Users extends MY_Controller {
 
     public function chat_new() {
         $id = $this->input->get('id');
-        $timestamp = $this->input->get('timestamp');
+        $timestamp = trim($this->input->get('timestamp'));
         $getChat = $this->chat_model->getNewMessages($id, $timestamp);
         echo json_encode($getChat);
     }   
