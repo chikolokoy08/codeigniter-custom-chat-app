@@ -128,7 +128,11 @@ class Login extends MY_Controller {
                 'date_active' => array(
                      'type' =>'DATETIME',
                      'null' => TRUE,
-                 )
+                 ),
+                'last_login' => array(
+                     'type' =>'TIMESTAMP',
+                     'null' => TRUE,
+                 )                
             );
             $this->dbforge->add_field($user_fields);
             $this->dbforge->add_key('id', TRUE);

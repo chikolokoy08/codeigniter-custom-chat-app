@@ -52,6 +52,30 @@ $(document).ready(function(){
     | CHAT FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    chatUserListCounter = function(){
+        $('#chatgroup .chatusers').each(function(){
+            var dis = $(this);
+            var userId = dis.attr('chatto');
+            var currentstamp = curdate + ' ' + curtime;
+            var chatFeeds = '/users/chat_count?id=' + userId + '&timestamp=' + currentstamp;
+            $.getJSON( chatFeeds, function( data ) {
+                console.log(data.length);
+                if (data.length > 0) {
+                    dis.find('.notify').html(data.length).show();
+                }
+            });
+        });
+    }
+
+    triggerChatCounter = function(){
+        setTimeout(function(){
+            chatUserListCounter();
+            triggerChatCounter();
+        },3000);
+    }
+
+    triggerChatCounter();
+
     chatBeat = function(){
 
         $('#chat-container .chat-object').each(function(){
@@ -66,6 +90,7 @@ $(document).ready(function(){
                 }
                 var chatFeeds = '/users/chat_new?id=' + userId + '&timestamp=' + currentstamp;
                 $.getJSON( chatFeeds, function( data ) {
+                    console.log(data.length);
                     chatModel(data, dis);
                 });
             }
@@ -76,7 +101,6 @@ $(document).ready(function(){
 
         var userId = dis.attr('chatto');
         var chatname = dis.find('#cu-email');
-        var state = dis.find('.status');  
 
         // //Initialize to copy userid to close button
         chatBox.find('.chat-close').attr('chatto', userId);
@@ -87,7 +111,7 @@ $(document).ready(function(){
         setCookie('chatid_'+userId+'', ''+userId+'', 7);
 
         //To provide color effect on chat box display
-        if(state.html() == 'Inactive'){
+        if(dis.hasClass('disabled') == true){
             chatBox.find('.panel').removeClass('panel-success').addClass('panel-default');
         }
         else {
@@ -251,6 +275,7 @@ $(document).ready(function(){
             }
         }
     }
+
     chatPulse();
 
 });

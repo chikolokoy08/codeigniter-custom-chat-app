@@ -40,8 +40,19 @@ class Chat_Model extends CI_Model {
         $this->db->where_in('pm.to_sender', $ids);
         $this->db->where(array('pm.received >' => $strDate));
         $this->db->group_by('pm.received', 'asc');
-        $this->db->limit(50);
         return $this->db->get($this->table)->result();        
+    }
+
+    public function getChatCount($id, $timestamp) {
+        $strDate = urldecode($timestamp);
+        $ids = array($id, $this->userid);
+        $this->db->select('pm.from_sender sender, pm.to_sender me, pm.received timestamp, pm.message message');
+        $this->db->from(''.$this->table.' as pm');
+        $this->db->where_in('pm.from_sender', $ids);
+        $this->db->where_in('pm.to_sender', $ids);
+        $this->db->where(array('pm.received >' => $strDate));
+        $this->db->group_by('pm.received', 'asc');
+        return $this->db->count_all_results();
     }
 
     public function insertChatData($data){

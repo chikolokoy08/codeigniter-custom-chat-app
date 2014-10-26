@@ -106,6 +106,10 @@ z-index: 99999;
   margin: 0px;
 }
 
+#chatgroup li a.disabled {
+  background-color: #ddd;
+}
+
 #chat-box:hover .panel {
   box-shadow: 0px 0px 5px #222;
 }

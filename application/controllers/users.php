@@ -54,6 +54,13 @@ class Users extends MY_Controller {
         echo json_encode($getChat);
     }   
 
+    public function chat_count() {
+        $id = $this->input->get('id');
+        $timestamp = trim($this->input->get('timestamp'));
+        $getChat = $this->chat_model->getNewMessages($id, $timestamp);
+        echo json_encode($getChat);        
+    }
+
     public function chatsend() {
         $chatData = array(
             'from_sender' => $this->input->post('chat_to'),
