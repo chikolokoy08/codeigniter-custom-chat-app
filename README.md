@@ -17,6 +17,9 @@ This chat app is built to provide a web-based chat portal for private and public
 ### Demo
 
 * Visit this link - [http://privatechat.jumpstartcreatives.com](http://privatechat.jumpstartcreatives.com)
+* You can create a new account or use the default user credentials below.
+* user1 (username: user1@mail.com password: d3f4ultp@ss)
+* user2 (username: user2@mail.com password: d3f4ultp@ss)
 
 ### Copyright and License
 
