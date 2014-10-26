@@ -15,6 +15,8 @@ class MY_Controller extends CI_Controller
             $this->data['userid'] = $this->userid;
             $this->dateFormat = date("Y-m-d H:i:s");
         }
+
+        date_default_timezone_set('Asia/Manila');
     }
 
     /**

@@ -58,12 +58,22 @@ $(document).ready(function(){
             var userId = dis.attr('chatto');
             var currentstamp = curdate + ' ' + curtime;
             var chatFeeds = '/users/chat_count?id=' + userId + '&timestamp=' + currentstamp;
-            $.getJSON( chatFeeds, function( data ) {
-                console.log(data.length);
-                if (data.length > 0) {
-                    dis.find('.notify').html(data.length).show();
-                }
-            });
+            console.log(dis.hasClass('open'));
+            if(dis.hasClass('open') === false) {
+                $.getJSON( chatFeeds, function( data ) {
+                    if (data.length > '0') {
+                        var notify = dis.find('.notify');
+                        if(notify.html() != '') {
+                            if(notify.html() != data.length) {
+                                notify.html(data.length).show();
+                            }
+                        } else {
+                            notify.html(data.length).show();
+                        }
+                        
+                    }
+                });                
+            }
         });
     }
 
@@ -101,6 +111,7 @@ $(document).ready(function(){
 
         var userId = dis.attr('chatto');
         var chatname = dis.find('#cu-email');
+        var notify = dis.find('.notify');
 
         // //Initialize to copy userid to close button
         chatBox.find('.chat-close').attr('chatto', userId);
@@ -109,6 +120,10 @@ $(document).ready(function(){
         chatBox.attr('chatid', userId);
 
         setCookie('chatid_'+userId+'', ''+userId+'', 7);
+
+        if(notify.html() != '') {
+            notify.html('').hide();
+        }
 
         //To provide color effect on chat box display
         if(dis.hasClass('disabled') == true){

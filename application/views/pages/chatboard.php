@@ -8,7 +8,7 @@
         <?php foreach ($users as $key): ?>
             <?php if($email != $key->email): ?>
                 <li>
-                    <a href="#<?php echo $key->id; ?>" class="chatusers <?php echo ($key->status == 0 ? 'disabled' : ''); ?>" chatto="<?php echo $key->id; ?>"><span id="cu-email"><?php echo $key->email; ?></span><span class="badge badge-danger notify hide"></span></a>
+                    <a href="#<?php echo $key->id; ?>" class="chatusers <?php echo ($key->status == 0 ? 'disabled' : ''); ?>" chatto="<?php echo $key->id; ?>"><span id="cu-email"><?php echo $key->email; ?></span><span class="badge notify"></span></a>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

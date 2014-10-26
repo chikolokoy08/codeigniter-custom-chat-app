@@ -26,7 +26,7 @@ class User extends CI_Model {
     }
 
     public function loginUser ($email){
-        $updateLogin = array('status' => '1', 'last_login' => date("Y-m-d H:i:s"));
+        $updateLogin = array('status' => '1', 'last_login' => date('Y-m-d H:i:s'));
         $this->db->where('email', $email);
         $this->db->update($this->table, $updateLogin);
     }

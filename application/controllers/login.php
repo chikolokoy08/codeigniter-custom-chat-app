@@ -130,7 +130,7 @@ class Login extends MY_Controller {
                      'null' => TRUE,
                  ),
                 'last_login' => array(
-                     'type' =>'TIMESTAMP',
+                     'type' =>'DATETIME',
                      'null' => TRUE,
                  )                
             );
@@ -170,8 +170,8 @@ class Login extends MY_Controller {
                      'null' => TRUE,
                  ),
                  'received' => array(
-                     'type' =>'TIMESTAMP',
-                     'null' => FALSE,
+                     'type' =>'DATETIME',
+                     'null' => true,
                  )
             );
             $this->dbforge->add_field($chat_fields);
