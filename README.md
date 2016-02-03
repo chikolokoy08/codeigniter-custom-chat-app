@@ -18,7 +18,7 @@ This chat app is built to provide a web-based chat portal for private and public
 
 ### Demo
 
-* Visit this link - [http://privatechat.jumpstartcreatives.com](http://privatechat.jumpstartcreatives.com)
+* Visit this link - [http://privatechatv2.jumpstartcreatives.com](http://privatechatv2.jumpstartcreatives.com)
 
 ### Copyright and License
 
